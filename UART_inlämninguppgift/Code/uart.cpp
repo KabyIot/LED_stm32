@@ -2,15 +2,15 @@
 
 void USART2_Init(void) { //Deklarerar en funktion för att initiera USART-protkokollet och dess beståndsdelar
 
-// 1. Enablea klocktillgång för uart2
+// 1. Aktiverar klocktillgång för uart2
 
 RCC->APB1ENR |= 0x20000; // Sätter bit 17 i registret APB1ENR för att aktivera UART2 genom att använda bitvis I/O-operation.
 
-// 2. Enablea klocktillgång för portA
+// 2. Aktiverar klocktillgång för portA
 
 RCC->AHB1ENR |= 0x01; // Sätter bit 0 i registret AHB1ENR för att aktivera GPIO-port A genom att använda bitvis I/O-operation. 
 
-// 3. Enablea pins relaterade till vald port, för alternativ funktion
+// 3. Aktiverar pins relaterade till vald port, för alternativ funktion
 GPIOA->MODER &= ~0x00F0; //Rensar bitarna 4-7 i registret MODER för GPIO-port A för att förbereda pins PA2 och PA3 genom att använda bitvis I/O-operation.
 
 
@@ -18,7 +18,7 @@ GPIOA->MODER |= 0x00A0; /* Sätter bitarna 5 och 7 i registret MODER för GPIO-p
                            på pins PA2 och PA3 genom att använda bitvis I/O-operation.
                          */
 
-// 4. Välja typen av alternativ funktion för de valde pinsen
+// 4. Väljer typen av alternativ funktion för de valde pinsen
 GPIOA->AFR[0] &= ~0xFF00; // Rensar bitarna 8-15 i det första elementet i register AFR för GPIO-port A för att förbereda pins PA2 och PA3 genom att använda bitvis I/O-operation.
 GPIOA->AFR[0] |= 0x7700; // Sätter bitarna 8-11 och 12-15 i det första elementet i registret AFR för GPIO-port A till binärvärdet 0111 genom att använda bitvis I/O-operation.
 
