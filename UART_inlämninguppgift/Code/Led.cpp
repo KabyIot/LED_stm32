@@ -1,8 +1,9 @@
 #include "LED.h" //Denna rad inkluderar en extern header fil som innehåller deklarationerna för LED-Beteckningar och funktioner som används i koden.
 
 
-/*Detta är konstruktorn för LED-lamporna. Den tar emot två parametrar: "_color", 
-som representerar färgen för LED-lampan och "_state", som repsrenterar dess status.
+/*
+Detta är konstruktorn för LED-lamporna. Den tar emot två parametrar: "_color", 
+som representerar färgen för LED-lampan och "_state", som representerar dess status.
 */
 Led::Led(LedColor_Type _color, LedState_Type _state)
 {
